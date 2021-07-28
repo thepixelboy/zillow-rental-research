@@ -33,3 +33,6 @@ for link in all_link_elements:
         all_links.append(f"https://www.zillow.com{href}")
     else:
         all_links.append(href)
+
+all_address_elements = soup.select(".list-card-info address")
+all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_elements]
