@@ -22,3 +22,14 @@ response = requests.get(
 
 data = response.text
 soup = BeautifulSoup(data, "html.parser")
+
+all_link_elements = soup.select(".list-card-top a")
+
+all_links = []
+for link in all_link_elements:
+    href = link["href"]
+    print(href)
+    if "http" not in href:
+        all_links.append(f"https://www.zillow.com{href}")
+    else:
+        all_links.append(href)
